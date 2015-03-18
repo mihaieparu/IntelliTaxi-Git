@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Despre aplicație";
+}
+<h2>@ViewBag.Title</h2>
+<h3><b>IntelliTaxi</b> - cea mai simplă metodă de a comanda un taxi</h3>
+
+<p>Te-ai întrebat de multe ori oare ce se întâmplă atunci când comanzi un taxi? De ce durează atât de mult? Oare unde se află acum taximetristul?</p>
+<p>Ei bine, de acum există <b>IntelliTaxi</b>! Mai nou, poți vedea în timp real ce se întâmplă cu comanda ta, când îți va sosi taxiul și locația lui în funcție de tine.</p>
+<p>
+    Pentru asta însă, există și unele reguli de bună practică:
+    <ol type="number">
+        <li>Pentru ca întreaga aplicație să funcționeze, trebuie să ne permiți să îți aflăm locația. Aceasta va fi stocată pe serverele noastre în siguranță, însă fără alte detalii de identificare, iar noi nu o vom distribui niciunei terțe părți. Compania selectată îți va afla locația doar în cazul în care tu accepți acest lucru, însă îți recomandăm s-o faci pentru a beneficia din plin de beneficiile IntelliTaxi.</li>
+        <li>Te rugăm să fii foarte concis în ceea ce privește comunicarea cu compania de taxi și să completezi toate informațiile cerute de aplicație, pentru ca legătura dintre tine și taxi să fie cât mai rapidă.</li>
+        <li>Utilizatorii ce au plasat comenzi ce s-au dovedit a fi false vor fi blocați, împreună cu adresa lor de IP. Nu permitem înșelătoriile pe această aplicație, iar companiile ar pierde foarte mult timp recepționând astfel de comenzi, de aceea te rugăm să nu faci asta.</li>
+        <li>Nu trebuie să fi înregistrat pe site pentru a plasa o comandă, însă pentru a putea garanta comanda ta și pentru a salva timp, îți recomandăm s-o faci. Nu durează mai mult de 5 minute!</li>
+    </ol>
+</p>
+<p>Acum că ai aflat toate detaliile despre aplicație, poți @Html.ActionLink("face o comandă", "Create", "Orders") sau poți @Html.ActionLink("vedea companiile ce sunt prezente pe site-ul nostru", "Index", "Companies").</p>

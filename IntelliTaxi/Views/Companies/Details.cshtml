@@ -1,0 +1,47 @@
+﻿@{
+    dynamic company = (ViewBag.company != null) ? Json.Decode(Json.Encode(ViewBag.company)) : null;
+    dynamic taxies = (ViewBag.taxies != null) ? Json.Decode(Json.Encode(ViewBag.taxies)) : null;
+    ViewBag.Title = "Detalii " + company.Name;
+}
+
+<h2>Detalii companie - @company.Name</h2>
+
+<div class="content">
+    <dl class="dl-horizontal">
+        <dt>
+            Denumire companie
+        </dt>
+
+        <dd>
+            @company.Name
+        </dd>
+
+        <dt>
+            Oraș
+        </dt>
+
+        <dd>
+            @company.City
+        </dd>
+
+        <dt>
+            Preț/km
+        </dt>
+
+        <dd>
+            @company.Price
+        </dd>
+
+        <dt>
+            Taxiuri disponibile
+        </dt>
+
+        <dd>
+            @taxies.Count()
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Întoarce-te la listă", "Index")
+</p>

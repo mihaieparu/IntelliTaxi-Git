@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Acasă";
+}
+<div class="jumbotron">
+    <h1>Bine ai venit!</h1>
+    <p class="lead"><b>IntelliTaxi</b> este o aplicație ce îți oferă posibilitatea să chemi un taxi doar cu un singur click! Cu ajutorul locației prin GPS, tot ce trebuie să faci este să completezi destinația, iar în cel mult 5 minute vei fi gata de plecare!</p>
+    <p>Mai jos poți vedea comenzile în așteptare și companiile de la care poți plasa comenzi. Apasă butonul "Vreau să fac o comandă!" pentru a face o comandă cu <b>IntelliTaxi</b>.</p>
+    <p>@Html.ActionLink("Vreau să fac o comandă!", "Create", "Orders", null, new { @class = "btn btn-lg btn-success", @style = "margin:5px;margin-left:0;" }) @Html.ActionLink("Află mai multe detalii", "About", "Home", new { @class = "btn btn-lg btn-primary", @style = "margin:5px;" })</p>
+</div>
+<div class="content">
+    @if (ViewBag.orders != null)
+    {
+        var orders = Json.Decode(Json.Encode(ViewBag.orders));
+        <h2>Comenzi în așteptare</h2><hr />
+        <table class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Data trimiterii
+                </th>
+                <th>
+                    Locație plecare
+                </th>
+                <th>
+                    Destinație
+                </th>
+                <th>
+                    Preluată
+                </th>
+                <th>
+                    Acțiuni
+                </th>
+            </tr>
+
+            @foreach (var item in orders)
+            {
+                TimeSpan lon = DateTime.Now - (DateTime)item.DateReg;
+                <tr @if (item.Taken == false) { @: data-taken="false"
+                         } id="order-@item.ID">
+                    <td>
+                        @item.ID
+                    </td>
+                    <td class="td-timespan">
+                        <span title="@item.DateReg">acum @((lon.Hours > 0) ? lon.Hours + " ore" : "") @((lon.Minutes > 0) ? lon.Minutes + " minute" : "") @((lon.Seconds > 0) ? lon.Seconds + " secunde" : "")</span>
+                    </td>
+                    <td>
+                        @if (item.From_SupportsMap == true)
+                        {
+                            <a href="http://maps.google.com/?q=@item.From_Lat.ToString().Replace(",","."),@item.From_Long.ToString().Replace(",", ".")" target="_blank">Vezi hartă</a>
+                        }
+                        else
+                        {
+                            @Server.UrlDecode(item.From_Name)
+                        }
+                    </td>
+                    <td>
+                        @if (item.Destination_SupportsMap == true)
+                        {
+                            <a href="http://maps.google.com/?q=@item.Destination_Lat.ToString().Replace(",", "."),@item.Destination_Long.ToString().Replace(",", ".")" target="_blank">Vezi hartă</a>
+                        }
+                        else
+                        {
+                            @Server.UrlDecode(item.Destination_Name)
+                        }
+                    </td>
+                    <td class="td-taken">
+                        @if (item.Taken == true)
+                        {
+                            <span class="glyphicon glyphicon-ok-circle" title="Da"></span>
+                        }
+                        else
+                        {
+                            <span class="glyphicon glyphicon-time" title="În așteptare"></span>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Detalii", "Details", "Orders", new { id = item.ID }, null)
+                        @if (item.Taken == false)
+                        {
+                            using (Html.BeginForm("Delete", "Orders", new { id = item.ID }, FormMethod.Post, new { @id = "del-" + item.ID }))
+                            { @Html.AntiForgeryToken();
+                            } @:<a href="javascript:$('#del-@item.ID').submit()" class="text-danger">Șterge</a>
+            }
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    <h2>Companii</h2><hr />
+    @if (ViewBag.companies != null) {
+        int c = ViewBag.companies.Count();
+        for (int i = 0; i < c; i += 3)
+        {
+            <div class="row">
+                @for (int j = 0; j < 3; j++)
+                {
+                    if (i + j < c) {
+                        dynamic company = Json.Decode(Json.Encode(ViewBag.companies))[i + j];
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <h1>@company.Name</h1>
+                            Oraș: <b>@company.City</b><br />
+                            Preț: <b>@String.Format("#.##", company.Price) RON</b>
+                        </div>
+                    }
+                }
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row"><center>Nu există înregistrări.</center></div>
+    }
+</div>
+<script>
+    function AjaxUpdateOrder(id) {
+        $.ajax({
+            type: "POST",
+            url: "/Orders/GetOrderAsync",
+            data: "id=" + id
+        }).success(function (result) {
+            if (result.Taken == false) {
+                $("#order-" + id).children(".td-timespan, .td-taken").html("");
+                $("#order-" + id).children(".td-timespan").html(result.TimeSp);
+                $("#order-" + id).children(".td-taken").html('<span class="glyphicon glyphicon-time" title="În așteptare"></span>');
+                $("#order-" + id).effect("highlight", null, 1000);
+            }
+            else {
+                location.href = "/Comanda/" + id;
+            }
+        });
+    }
+    var updtable = setInterval(function () {
+        if ($("tr[data-taken=false]").length > 0) {
+            $("tr[data-taken=false]").each(function () {
+                AjaxUpdateOrder($(this).attr("id").replace("order-", ""));
+            });
+        }
+        else {
+            clearInterval(updtable);
+        }
+    }, 10000);
+</script>

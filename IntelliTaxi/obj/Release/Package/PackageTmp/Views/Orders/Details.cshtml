@@ -1,0 +1,153 @@
+﻿@model IntelliTaxi_Entities.Orders
+
+@{
+    ViewBag.Title = "Detalii comandă";
+    var review = new IntelliTaxi_Entities.Reviews();
+    if (Model.Review_ID != null)
+    {
+        review = ViewBag.review;
+    }
+}
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4-lL5mGztPF1GrIK_Y29tsCTLowV5xiE"></script>
+<script>
+    function AjaxUpdateTaxiMap() {
+        $.ajax({
+            type: "POST",
+            url: "/Orders/GetTaxiLocationAsync",
+            data: "id=@Model.TaxiTaken_ID"
+        }).success(function (result) {
+            var Location = JSON.parse(result);
+            $("#taxi-map").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyA4-lL5mGztPF1GrIK_Y29tsCTLowV5xiE&q=" + Location.Lat.toString().Replace(",", ".") + "," + Location.Long.toString().Replace(",", "."));
+        })
+    }
+</script>
+
+<h2>Detalii pentru comanda #@Model.ID </h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateReg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateReg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTaken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTaken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateLeft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateLeft)
+        </dd>
+
+        <dt>
+            Locație plecare
+        </dt>
+
+        <dd>
+            @if (Model.From_SupportsMap == true)
+            {
+                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA4-lL5mGztPF1GrIK_Y29tsCTLowV5xiE&q=@Model.From_Lat.ToString().Replace(",", "."),@Model.From_Long.ToString().Replace(",", ".")" style="width:auto;height:200px" frameborder="0"></iframe>
+            }
+            else
+            {
+                @Server.UrlDecode(Html.DisplayFor(model => model.From_Name).ToString());
+            }
+        </dd>
+
+        <dt>
+            Destinație
+        </dt>
+
+        <dd>
+            @if (Model.Destination_SupportsMap == true)
+            {
+                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA4-lL5mGztPF1GrIK_Y29tsCTLowV5xiE&q=@Model.Destination_Lat.ToString().Replace(",", "."),@Model.Destination_Long.ToString().Replace(",", ".")" style="width:auto;height:200px" frameborder="0"></iframe>
+            }
+            else
+            {
+                @Server.UrlDecode(Html.DisplayFor(model => model.Destination_Name).ToString())
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Taken)
+        </dt>
+
+        <dd>
+            @if (Model.Taken == true)
+            {
+                <span class="glyphicon glyphicon-ok-circle" title="Da"></span>
+            }
+            else
+            {
+                <span class="glyphicon glyphicon-time" title="În așteptare"></span>
+            }
+        </dd>
+
+        <dt>
+            Review
+        </dt>
+
+        <dd>
+            @if (Model.Taken == true)
+            {
+                if (Model.Review_ID != null)
+                {
+                    @review.Stars <span class="glyphicon glyphicon-star" title="@review.Stars stele"></span><br />
+                    @review.Content
+                }
+                else
+                {
+                    @Html.ActionLink("Adaugă", "Create", "Reviews", new { oid = Model.ID }, new { @class = "btn btn-xs btn-primary" })
+                }
+            }
+            else
+            {
+                @:-
+            }
+        </dd>
+
+        @if (Model.Taken == true && ViewBag.TaxiLocation != null)
+        {
+            <dt>
+                Locație taxi
+            </dt>
+            
+            <dd>
+                <iframe id="taxi-map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA4-lL5mGztPF1GrIK_Y29tsCTLowV5xiE&q=@Model.Destination_Lat.ToString().Replace(",", "."),@Model.Destination_Long.ToString().Replace(",", ".")" style="width:auto;height:200px" frameborder="0"></iframe>
+                <script>
+                    setInterval(function () { AjaxUpdateTaxiMap(); }, 10000);
+                </script>
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @if (Model.Taken == false)
+    {
+        using (Html.BeginForm("Delete", "Orders", new { id = Model.ID }, FormMethod.Post, new { @id = "del-" + Model.ID })) { @Html.AntiForgeryToken(); } 
+        @:<a href="javascript:$('#del-@Model.ID').submit()" class="text-danger">Șterge</a><br />
+    }
+    @Html.ActionLink("Întoarce-te la comenzi", "Index")
+</p>
