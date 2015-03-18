@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelliTaxi", "IntelliTaxi\IntelliTaxi.csproj", "{ADA63954-19C9-45FB-BDA5-FDFBC8ACE3F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{768F1F06-0F89-43E2-A2AE-15081474D083}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{5A9F0C34-F9AC-487E-8EFB-01B5B1E64B37}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\IntelliTaxi-WAWS-dev.json = PublishScripts\Configurations\IntelliTaxi-WAWS-dev.json
+		PublishScripts\Configurations\IntelliTaxiManager-WAWS-dev-2.json = PublishScripts\Configurations\IntelliTaxiManager-WAWS-dev-2.json
+		PublishScripts\Configurations\IntelliTaxiManager-WAWS-dev.json = PublishScripts\Configurations\IntelliTaxiManager-WAWS-dev.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C174FE7E-6204-414D-AD78-6C52EDD8C620}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelliTaxi Entities", "IntelliTaxi Entities\IntelliTaxi Entities.csproj", "{861D1999-88AD-413A-8F71-D33AC14B8A46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelliTaxi Manager", "IntelliTaxi Manager\IntelliTaxi Manager.csproj", "{9FD4AA8A-6A26-455C-8EE6-DFBF822F3E12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADA63954-19C9-45FB-BDA5-FDFBC8ACE3F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA63954-19C9-45FB-BDA5-FDFBC8ACE3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA63954-19C9-45FB-BDA5-FDFBC8ACE3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA63954-19C9-45FB-BDA5-FDFBC8ACE3F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861D1999-88AD-413A-8F71-D33AC14B8A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861D1999-88AD-413A-8F71-D33AC14B8A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861D1999-88AD-413A-8F71-D33AC14B8A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861D1999-88AD-413A-8F71-D33AC14B8A46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FD4AA8A-6A26-455C-8EE6-DFBF822F3E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD4AA8A-6A26-455C-8EE6-DFBF822F3E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD4AA8A-6A26-455C-8EE6-DFBF822F3E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD4AA8A-6A26-455C-8EE6-DFBF822F3E12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A9F0C34-F9AC-487E-8EFB-01B5B1E64B37} = {768F1F06-0F89-43E2-A2AE-15081474D083}
+	EndGlobalSection
+EndGlobal

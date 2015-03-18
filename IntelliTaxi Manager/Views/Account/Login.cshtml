@@ -1,0 +1,64 @@
+﻿@using IntelliTaxi_Entities.Models
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Autentificare";
+}
+<div class="panel panel-default" style="width:320px;position:relative;margin:15px auto;">
+    <div class="panel-heading"><center><font style="font-size:1.5em">Autentificare</font></center></div>
+    <div class="panel-body" style="padding:30px 30px">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            if (Html.ValidationSummary(true) != null) {
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    @Html.ValidationSummary(true, "Au apărut următoarele erori:")
+                </div>
+            }
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon">@Html.LabelFor(m => m.Username, new { @class = "control-label" })</span>
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+            </div>
+            <center style="margin-top:10px">@Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger", @style = "padding-top: 10px" })</center>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon">@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })</span>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+            <center style="margin-top:10px">@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger", @style = "padding-top: 10px" })</center>
+            <br />
+            <center>
+                @Html.CheckBoxFor(m => m.RememberMe)
+            @Html.LabelFor(m => m.RememberMe, " Ține-mă minte")
+        </center>
+        <br />
+        <div class="form-group">
+            <center><button class="btn btn-primary" type="submit">Intră în cont!</button></center>
+        </div>
+    }
+</div>
+</div>
+
+<script>
+    var topset = 0;
+    setInterval(function () {
+        if ($(window).height() > $(".panel").outerHeight(true)) {
+            if ($(".panel").position().top != (($(window).height() - $(".panel").outerHeight(true)) / 2) && topset == 0) {
+                topset = 1;
+                $(".panel").animate({ top: (($(window).height() - $(".panel").outerHeight(true)) / 2) }, 200, function () { topset = 0; });
+            }
+        }
+        else {
+            if ($(".panel").position().top != 0 && topset == 0) {
+                topset = 1;
+                $(".panel").animate({ top: 0 }, 200, function () { topset = 0; });
+            }
+        }
+    }, 50);
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

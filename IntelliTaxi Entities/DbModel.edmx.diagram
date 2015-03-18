@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="89a5707a158a49dfb4219ffcfad6d51d" Name="Diagram1">
+        <EntityTypeShape EntityType="intellitaxi_dbModel.Companies" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellitaxi_dbModel.Devices" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellitaxi_dbModel.Orders" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellitaxi_dbModel.Reviews" Width="1.5" PointX="9.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellitaxi_dbModel.Taxies" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="intellitaxi_dbModel.Users" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="intellitaxi_dbModel.FK_Companies_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="intellitaxi_dbModel.FK_Taxies_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="intellitaxi_dbModel.FK_Devices_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="intellitaxi_dbModel.FK_Orders_Taxies" ManuallyRouted="false" />
+        <AssociationConnector Association="intellitaxi_dbModel.FK_Orders_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="intellitaxi_dbModel.FK_Reviews_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="intellitaxi_dbModel.FK_Reviews_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="intellitaxi_dbModel.FK_Taxies_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,98 @@
+﻿@model IntelliTaxi_Entities.Devices
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Devices</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location_Lat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location_Lat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location_Long)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location_Long)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location_SupportsMap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location_SupportsMap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstUse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstUse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.On)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.On)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,30 @@
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\IntelliTaxi Entities.dll.config
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\IntelliTaxi Entities.dll
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\IntelliTaxi Entities.pdb
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\EntityFramework.dll
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\EntityFramework.xml
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\obj\Release\IntelliTaxi Entities.csprojResolveAssemblyReference.cache
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\obj\Release\IntelliTaxi Entities.dll
+C:\Users\Mihai\documents\visual studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\obj\Release\IntelliTaxi Entities.pdb
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\Microsoft.Owin.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\Owin.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.Helpers.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.Mvc.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.Razor.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.WebPages.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\Microsoft.Owin.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.Helpers.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.Mvc.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.Razor.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.WebPages.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Entities\bin\Release\System.Web.WebPages.Razor.xml

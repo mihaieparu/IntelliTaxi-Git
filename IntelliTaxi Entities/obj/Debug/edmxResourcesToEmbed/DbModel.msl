@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="intellitaxi_dbModelStoreContainer" CdmEntityContainer="intellitaxi_dbEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="intellitaxi_dbModel.Companies">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devices">
+      <EntityTypeMapping TypeName="intellitaxi_dbModel.Devices">
+        <MappingFragment StoreEntitySet="Devices">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Location_Lat" ColumnName="Location_Lat" />
+          <ScalarProperty Name="Location_Long" ColumnName="Location_Long" />
+          <ScalarProperty Name="Location_Name" ColumnName="Location_Name" />
+          <ScalarProperty Name="Location_SupportsMap" ColumnName="Location_SupportsMap" />
+          <ScalarProperty Name="FirstUse" ColumnName="FirstUse" />
+          <ScalarProperty Name="LastUse" ColumnName="LastUse" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="On" ColumnName="On" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="intellitaxi_dbModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="DateReg" ColumnName="DateReg" />
+          <ScalarProperty Name="DateTaken" ColumnName="DateTaken" />
+          <ScalarProperty Name="DateLeft" ColumnName="DateLeft" />
+          <ScalarProperty Name="From_Lat" ColumnName="From_Lat" />
+          <ScalarProperty Name="From_Long" ColumnName="From_Long" />
+          <ScalarProperty Name="From_Name" ColumnName="From_Name" />
+          <ScalarProperty Name="From_SupportsMap" ColumnName="From_SupportsMap" />
+          <ScalarProperty Name="Destination_Lat" ColumnName="Destination_Lat" />
+          <ScalarProperty Name="Destination_Long" ColumnName="Destination_Long" />
+          <ScalarProperty Name="Destination_Name" ColumnName="Destination_Name" />
+          <ScalarProperty Name="Destination_SupportsMap" ColumnName="Destination_SupportsMap" />
+          <ScalarProperty Name="Taken" ColumnName="Taken" />
+          <ScalarProperty Name="TaxiTaken_ID" ColumnName="TaxiTaken_ID" />
+          <ScalarProperty Name="Review_ID" ColumnName="Review_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="intellitaxi_dbModel.Reviews">
+        <MappingFragment StoreEntitySet="Reviews">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="From_ID" ColumnName="From_ID" />
+          <ScalarProperty Name="For_ID" ColumnName="For_ID" />
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="Stars" ColumnName="Stars" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Taxies">
+      <EntityTypeMapping TypeName="intellitaxi_dbModel.Taxies">
+        <MappingFragment StoreEntitySet="Taxies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RegNumber" ColumnName="RegNumber" />
+          <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+          <ScalarProperty Name="HasOrder" ColumnName="HasOrder" />
+          <ScalarProperty Name="CurrOrder_ID" ColumnName="CurrOrder_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="intellitaxi_dbModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Device_ID" ColumnName="Device_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

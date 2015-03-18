@@ -1,0 +1,57 @@
+﻿@model IEnumerable<IntelliTaxi_Entities.Taxies>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrOrder_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrOrder_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

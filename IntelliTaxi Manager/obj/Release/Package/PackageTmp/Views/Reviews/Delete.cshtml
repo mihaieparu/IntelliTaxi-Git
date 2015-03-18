@@ -1,0 +1,64 @@
+﻿@model IntelliTaxi_Entities.Reviews
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Reviews</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.From_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.From_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.For_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.For_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SendDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SendDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

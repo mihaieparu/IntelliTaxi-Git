@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="intellitaxi_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Admin_ID" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Companies_Users" FromRole="Companies" ToRole="Users" />
+    <NavigationProperty Name="Taxies" Relationship="Self.FK_Taxies_Companies" FromRole="Companies" ToRole="Taxies" />
+  </EntityType>
+  <EntityType Name="Devices">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Location_Lat" Type="Double" />
+    <Property Name="Location_Long" Type="Double" />
+    <Property Name="Location_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Location_SupportsMap" Type="Boolean" />
+    <Property Name="FirstUse" Type="DateTime" Precision="3" />
+    <Property Name="LastUse" Type="DateTime" Precision="3" />
+    <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="On" Type="Boolean" />
+    <Property Name="User_ID" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Devices_Users" FromRole="Devices" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="DateReg" Type="DateTime" Precision="3" />
+    <Property Name="DateTaken" Type="DateTime" Precision="3" />
+    <Property Name="DateLeft" Type="DateTime" Precision="3" />
+    <Property Name="From_Lat" Type="Double" />
+    <Property Name="From_Long" Type="Double" />
+    <Property Name="From_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="From_SupportsMap" Type="Boolean" />
+    <Property Name="Destination_Lat" Type="Double" />
+    <Property Name="Destination_Long" Type="Double" />
+    <Property Name="Destination_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Destination_SupportsMap" Type="Boolean" />
+    <Property Name="Taken" Type="Boolean" />
+    <Property Name="TaxiTaken_ID" Type="Int32" />
+    <Property Name="Review_ID" Type="Int32" />
+    <NavigationProperty Name="Taxies" Relationship="Self.FK_Orders_Taxies" FromRole="Orders" ToRole="Taxies" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Orders" FromRole="Orders" ToRole="Reviews" />
+  </EntityType>
+  <EntityType Name="Reviews">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="From_ID" Type="Int32" />
+    <Property Name="For_ID" Type="Int32" />
+    <Property Name="SendDate" Type="DateTime" Precision="3" />
+    <Property Name="Stars" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Reviews_Orders" FromRole="Reviews" ToRole="Orders" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Reviews_Users" FromRole="Reviews" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Taxies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Company_ID" Type="Int32" />
+    <Property Name="HasOrder" Type="Int32" />
+    <Property Name="CurrOrder_ID" Type="Int32" />
+    <Property Name="User_ID" Type="Int32" />
+    <NavigationProperty Name="Companies" Relationship="Self.FK_Taxies_Companies" FromRole="Taxies" ToRole="Companies" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Taxies" FromRole="Taxies" ToRole="Orders" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Taxies_Users" FromRole="Taxies" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Device_ID" Type="Int32" />
+    <NavigationProperty Name="Companies" Relationship="Self.FK_Companies_Users" FromRole="Users" ToRole="Companies" />
+    <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_Users" FromRole="Users" ToRole="Devices" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Users" FromRole="Users" ToRole="Reviews" />
+    <NavigationProperty Name="Taxies" Relationship="Self.FK_Taxies_Users" FromRole="Users" ToRole="Taxies" />
+  </EntityType>
+  <Association Name="FK_Companies_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Companies">
+        <PropertyRef Name="Admin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Taxies_Companies">
+    <End Role="Companies" Type="Self.Companies" Multiplicity="0..1" />
+    <End Role="Taxies" Type="Self.Taxies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Taxies">
+        <PropertyRef Name="Company_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Devices_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Devices">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Taxies">
+    <End Role="Taxies" Type="Self.Taxies" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Taxies">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="TaxiTaken_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviews_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="For_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviews_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="From_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Taxies_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Taxies" Type="Self.Taxies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Taxies">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="intellitaxi_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Companies" EntityType="Self.Companies" />
+    <EntitySet Name="Devices" EntityType="Self.Devices" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="Reviews" EntityType="Self.Reviews" />
+    <EntitySet Name="Taxies" EntityType="Self.Taxies" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Companies_Users" Association="Self.FK_Companies_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Companies" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Taxies_Companies" Association="Self.FK_Taxies_Companies">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Taxies" EntitySet="Taxies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Devices_Users" Association="Self.FK_Devices_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Devices" EntitySet="Devices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Taxies" Association="Self.FK_Orders_Taxies">
+      <End Role="Taxies" EntitySet="Taxies" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviews_Orders" Association="Self.FK_Reviews_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviews_Users" Association="Self.FK_Reviews_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Taxies_Users" Association="Self.FK_Taxies_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Taxies" EntitySet="Taxies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

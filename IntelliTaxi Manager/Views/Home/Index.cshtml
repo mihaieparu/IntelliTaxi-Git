@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "Acasă";
+}
+
+@switch ((string)ViewBag.Role)
+{
+    case "Admin":
+        <div class="jumbotron">
+            <h1>Bine ai venit!</h1>
+            <p class="lead">Bine te-am găsit! Momentan ai rolul de <b>Administrator</b>, așa că poți adăuga, modifica sau șterge companiile, taxiurile, comenzile sau utilizatorii. Te rugăm însă să administrezi într-un mod responsabil aplicația online.</p>
+            <p>@Html.ActionLink("Află mai multe detalii", "About", "Home", new { @class = "btn btn-lg btn-primary", @style="margin:5px;margin-left:0;" }) <a href="javascript:hide('.jumbotron');" style="margin:5px" class="btn btn-default btn-lg">Ascunde informații</a></p>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <center>Companii</center>
+                        </div>
+                        <div class="panel-body" style="padding:30px">
+                            În acest moment, în aplicație sunt înregistrate <b>@ViewBag.companies</b> companii.<br />
+                            <br />
+                            <center>@Html.ActionLink("Vezi companii", "Index", "Companies", null, new { @class = "btn btn-primary" })</center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <center>Taxiuri</center>
+                        </div>
+                        <div class="panel-body" style="padding:30px">
+                            În acest moment, în aplicație sunt înregistrate <b>@Json.Decode(Json.Encode(ViewBag.taxies)).All</b> taxiuri, din care <b>@Json.Decode(Json.Encode(ViewBag.taxies)).On</b> sunt pe teren.<br />
+                            <br />
+                            <center>@Html.ActionLink("Vezi taxiuri", "Index", "Taxies", null, new { @class = "btn btn-primary" })</center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <center>Utilizatori</center>
+                        </div>
+                        <div class="panel-body" style="padding:30px">
+                            În acest moment, în aplicație sunt înregistrați <b>@Json.Decode(Json.Encode(ViewBag.users)).All</b> utilizatori, din care <b>@Json.Decode(Json.Encode(ViewBag.users)).On</b> sunt online.<br />
+                            <br />
+                            <center>@Html.ActionLink("Vezi utilizatori", "Index", "Users", null, new { @class = "btn btn-primary" })</center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        break;
+    case "Company":
+        <div class="jumbotron">
+            <h1>Bine ai venit!</h1>
+            <p class="lead">Bine te-am găsit! Momentan ai rolul de <b>Administrator companie</b>, așa că poți adăuga, modifica sau șterge taxiurile sau comenzile aferente companiei tale. Te rugăm să administrezi aplicația online într-un mod responsabil.</p>
+            <p>@Html.ActionLink("Află mai multe detalii", "About", "Home", new { @class = "btn btn-lg btn-primary", @style = "margin:5px;margin-left:0;" }) <a href="javascript:hide('.jumbotron');" style="margin:5px" class="btn btn-default btn-lg">Ascunde informații</a></p>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <center>Taxiuri</center>
+                        </div>
+                        <div class="panel-body" style="padding:30px">
+                            În acest moment, în aplicație sunt înregistrate <b>@Json.Decode(Json.Encode(ViewBag.taxies)).All</b> taxiuri, din care <b>@Json.Decode(Json.Encode(ViewBag.taxies)).On</b> sunt pe teren.<br />
+                            <center>@Html.ActionLink("Vezi taxiuri", "Index", "Taxies", null, new { @class = "btn btn-primary" })</center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <center>Comenzi</center>
+                        </div>
+                        <div class="panel-body" style="padding:30px">
+                            În acest moment, în aplicație sunt înregistrate <b>@ViewBag.untookorders</b> comenzi nepreluate.<br />
+                            <center>@Html.ActionLink("Vezi comenzi nepreluate", "Index", "Orders", new { untook = true }, new { @class = "btn btn-primary" })</center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        break;
+    case "Taxi":
+        <div class="jumbotron">
+            <h1>Bine ai venit!</h1>
+            <p class="lead">Bine te-am găsit! Momentan ai rolul de <b>Taximetrist</b>, așa că poți administra doar comenzile ce sosesc de la utilizatori. Te rugăm să administrezi aplicația online într-un mod responsabil.</p>
+            <p>@Html.ActionLink("Află mai multe detalii", "About", "Home", new { @class = "btn btn-lg btn-primary", @style = "margin:5px;margin-left:0;" }) <a href="javascript:hide('.jumbotron');" style="margin:5px" class="btn btn-default btn-lg">Ascunde informații</a></p>
+        </div>
+        <div class="content">
+            <div class="row">
+                @if (ViewBag.untookorders != null) {
+                    var orders = Json.Decode(Json.Encode(ViewBag.orders));
+                    <h2>Comenzi în așteptare</h2><hr />
+                    <table class="table">
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Data trimiterii
+                            </th>
+                            <th>
+                                Locație plecare
+                            </th>
+                            <th>
+                                Destinație
+                            </th>
+                            <th>
+                                Preluată
+                            </th>
+                            <th>
+                                Acțiuni
+                            </th>
+                        </tr>
+
+                        @foreach (var item in orders)
+                        {
+                            TimeSpan lon = DateTime.Now - (DateTime)item.DateReg;
+                            <tr @if (item.Taken == false) { @: data-taken="false"
+                                                         } id="order-@item.ID">
+                                <td>
+                                    @item.ID
+                                </td>
+                                <td class="td-timespan">
+                                    <span title="@item.DateReg">acum @((lon.Hours > 0) ? lon.Hours + " ore" : "") @((lon.Minutes > 0) ? lon.Minutes + " minute" : "") @((lon.Seconds > 0) ? lon.Seconds + " secunde" : "")</span>
+                                </td>
+                                <td>
+                                    @if (item.From_SupportsMap == true)
+                                    {
+                                        <a href="http://maps.google.com/?q=@item.From_Lat.ToString().Replace(",","."),@item.From_Long.ToString().Replace(",", ".")" target="_blank">Vezi hartă</a>
+                                    }
+                                    else
+                                    {
+                                        @Server.UrlDecode(item.From_Name)
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Destination_SupportsMap == true)
+                                    {
+                                        <a href="http://maps.google.com/?q=@item.Destination_Lat.ToString().Replace(",", "."),@item.Destination_Long.ToString().Replace(",", ".")" target="_blank">Vezi hartă</a>
+                                    }
+                                    else
+                                    {
+                                        @Server.UrlDecode(item.Destination_Name)
+                                    }
+                                </td>
+                                <td class="td-taken">
+                                    @if (item.Taken == true)
+                                    {
+                                        <span class="glyphicon glyphicon-ok-circle" title="Da"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="glyphicon glyphicon-time" title="În așteptare"></span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Detalii", "Details", "Orders", new { id = item.ID }, null)
+                                    @if (item.Taken == false)
+                                    {
+                                        using (Html.BeginForm("Delete", "Orders", new { id = item.ID }, FormMethod.Post, new { @id = "del-" + item.ID }))
+                                        { @Html.AntiForgeryToken();
+                                        } @:<a href="javascript:$('#del-@item.ID').submit()" class="text-danger">Șterge</a>
+                }
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                }
+            </div>
+        </div>
+        break;
+}

@@ -1,0 +1,117 @@
+﻿@model IEnumerable<IntelliTaxi_Entities.Orders>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateLeft)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.From_Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.From_Long)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.From_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.From_SupportsMap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination_Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination_Long)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination_SupportsMap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Taken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxiTaken_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Review_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateLeft)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.From_Lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.From_Long)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.From_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.From_SupportsMap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination_Lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination_Long)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination_SupportsMap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Taken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxiTaken_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Review_ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

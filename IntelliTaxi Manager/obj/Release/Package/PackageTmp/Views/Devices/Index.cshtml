@@ -1,0 +1,87 @@
+﻿@model IEnumerable<IntelliTaxi_Entities.Devices>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location_Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location_Long)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location_SupportsMap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstUse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.On)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location_Lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location_Long)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location_SupportsMap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstUse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.On)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

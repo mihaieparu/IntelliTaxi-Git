@@ -1,0 +1,117 @@
+﻿@model IEnumerable<IntelliTaxi_Entities.Orders>
+
+@{
+    ViewBag.Title = "Comenzi";
+}
+
+<h2>Comenzile mele</h2>
+
+<p>
+    @Html.ActionLink("Plasează o comandă nouă!", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateLeft)
+        </th>
+        <th>
+            Locație plecare
+        </th>
+        <th>
+            Destinație
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Taken)
+        </th>
+        <th>
+            Review
+        </th>
+        <th>
+            Acțiuni
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr @if (item.Taken == false) {
+            @:data-taken="false" 
+     } id="order-@item.ID">
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateLeft)
+        </td>
+        <td>
+            @if (item.From_SupportsMap == true)
+            {
+                <a href="http://maps.google.com/?q=@item.From_Lat.ToString().Replace(",","."),@item.From_Long.ToString().Replace(",", ".")" target="_blank">Vezi hartă</a>
+            }
+            else
+            {
+                @Server.UrlDecode(item.From_Name)
+            }
+        </td>
+        <td>
+            @if (item.Destination_SupportsMap == true)
+            {
+                <a href="http://maps.google.com/?q=@item.Destination_Lat.ToString().Replace(",", "."),@item.Destination_Long.ToString().Replace(",", ".")" target="_blank">Vezi hartă</a>
+            }
+            else
+            {
+                @Server.UrlDecode(item.Destination_Name)
+            }
+        </td>
+        <td>
+            @if (item.Taken == true)
+            {
+                <span class="glyphicon glyphicon-ok-circle" title="Da"></span>
+            }
+            else
+            {
+                <span class="glyphicon glyphicon-time" title="În așteptare"></span>
+            }
+        </td>
+
+        <td>
+            @if (item.Taken == true)
+            {
+                if (item.Review_ID != null)
+                {
+                    <span class="glyphicon glyphicon-ok-circle"></span>
+                }
+                else
+                {
+                    @Html.ActionLink("Adaugă", "Create", "Reviews", new { oid = item.ID }, new { @class = "btn btn-xs btn-primary" })
+                }
+            }
+            else
+            {
+                @:-
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Detalii", "Details", new { id = item.ID })
+            @if (item.Taken == false)
+            {
+                using (Html.BeginForm("Delete", "Orders", new { id = item.ID }, FormMethod.Post, new { @id = "del-" + item.ID })) { @Html.AntiForgeryToken(); } @:<a href="javascript:$('#del-@item.ID').submit()" class="text-danger">Șterge</a>
+            }
+        </td>
+    </tr>
+}
+
+</table>

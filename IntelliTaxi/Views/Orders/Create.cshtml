@@ -1,0 +1,147 @@
+﻿@model IntelliTaxi_Entities.Orders
+
+@{
+    ViewBag.Title = "Plasează o comandă nouă";
+}
+
+<h2>Plasează o comandă nouă</h2>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4-lL5mGztPF1GrIK_Y29tsCTLowV5xiE"></script>
+<script>
+    var from = { Lat: 0, Long: 0, Name: "", SupportsMap: false };
+    var dest = { Lat: 0, Long: 0, Name: "", SupportsMap: false };
+    function changeLocation(loctype) {
+        var ids = (loctype == 1) ? $("#from-select") : $("#dest-select");
+        var idc = (loctype == 1) ? $("#from-location") : $("#dest-location");
+        switch (ids.val()) {
+            case "":
+                idc.children("*").remove();
+                break;
+            case "curr":
+                idc.children("*").remove();
+                break;
+            case "new-map":
+                idc.children("*").remove();
+                idc.append('<div id="map-canvas-' + loctype + '" style="height:400px; width:500px;"></div>');
+                var mapOptions = {
+                    center: new google.maps.LatLng(loccur.Lat.toString().replace(",", "."), loccur.Long.toString().replace(",", ".")),
+                    zoom: 16,
+                };
+                var map = new google.maps.Map(document.getElementById("map-canvas-" + loctype), mapOptions);
+                var marker = new google.maps.Marker();
+                google.maps.event.addListener(map, "click", function (event) { marker.setMap(null); marker = new google.maps.Marker({ position: event.latLng, map: map, title: "Pozitie selectată" }); var loc = { Lat: 0, Long: 0, Name: "", SupportsMap: false }; loc.Lat = event.latLng.lat(); loc.Long = event.latLng.lng(); loc.SupportsMap = true; if (loctype == 1) { from = loc; } else { dest = loc; }; });
+                break;
+            case "new-name":
+                idc.children("*").remove();
+                if (loctype == 1) { idc.append('<input type="text" id="from-name" name="from-name" class="form-control" placeholder="Loc/stradă/monument/zonă - cât mai precis" />'); }
+                else { idc.append('<input type="text" name="dest-name" id="dest-name" class="form-control" placeholder="Loc/stradă/monument/zonă - cât mai precis" />'); }
+                break;
+        }
+    }
+    function submitForm() {
+        var fc = false, dc = false;
+        switch ($("#from-select").val()) {
+            case "curr":
+                from = { Lat: loccur.Lat, Long: loccur.Long, Name: "", SupportsMap: true };
+                fc = true;
+                break;
+            case "new-map":
+                if (from.Lat != 0 && from.Long != 0) {
+                    fc = true;
+                }
+                else {
+                    alert("Te rog selectează locația de plecare!");
+                }
+                break;
+            case "new-name":
+                if ($("#from-name").val() != "") {
+                    from = { Lat: 0, Long: 0, Name: $("#from-name").val(), SupportsMap: false };
+                    fc = true;
+                }
+                else {
+                    alert("Te rog introdu locația de plecare!");
+                }
+                break;
+        }
+        if (fc) {
+            switch ($("#dest-select").val()) {
+                case "new-map":
+                    if (dest.Lat != 0 && dest.Long != 0) {
+                        dc = true;
+                    }
+                    else {
+                        alert("Te rog selectează destinația!");
+                    }
+                    break;
+                case "new-name":
+                    if ($("#dest-name").val() != "") {
+                        dest = { Lat: 0, Long: 0, Name: $("#dest-name").val(), SupportsMap: false };
+                        dc = true;
+                    }
+                    else {
+                        alert("Te rog introdu destinația!");
+                    }
+                    break;
+            }
+        }
+        if (fc && dc) {
+            $("form").append('<input type="hidden" name="From_Lat" value="' + from.Lat.toString().replace(".",",") + '" />');
+            $("form").append('<input type="hidden" name="From_Long" value="' + from.Long.toString().replace(".", ",") + '" />');
+            $("form").append('<input type="hidden" name="From_Name" value="' + encodeURIComponent(from.Name) + '" />');
+            $("form").append('<input type="hidden" name="From_SupportsMap" value="' + from.SupportsMap + '" />');
+            $("form").append('<input type="hidden" name="Destination_Lat" value="' + dest.Lat.toString().replace(".", ",") + '" />');
+            $("form").append('<input type="hidden" name="Destination_Long" value="' + dest.Long.toString().replace(".", ",") + '" />');
+            $("form").append('<input type="hidden" name="Destination_Name" value="' + encodeURIComponent(dest.Name) + '" />');
+            $("form").append('<input type="hidden" name="Destination_SupportsMap" value="' + dest.SupportsMap + '" />');
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
+@using (Html.BeginForm("Create", "Orders", FormMethod.Post, new { @onsubmit="return submitForm();" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Comandă nouă</h4>
+        <hr />
+        <div class="form-group">
+            <label for="from-select" class="control-label col-md-2">Locație de plecare</label>
+            <div class="col-md-10">
+                <select id="from-select" name="from-select" class="form-control" onchange="javascript: changeLocation(1);" required>
+                    <option value="curr">Locație curentă</option>
+                    <option value="new-map">Locație nouă (selectează pe hartă)</option>
+                    <option value="new-name">Locație nouă (oferă nume locație)</option>
+                </select><br />
+                <div id="from-location"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dest-select" class="control-label col-md-2">Destinație</label>
+            <div class="col-md-10">
+                <select id="dest-select" name="dest-select" class="form-control" onchange="javascript: changeLocation(2);" required>
+                    <option value="">Selectează...</option>
+                    <option value="new-map">Locație nouă (selectează pe hartă)</option>
+                    <option value="new-name">Locație nouă (oferă nume locație)</option>
+                </select><br />
+                <div id="dest-location"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Trimite comandă!" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Înapoi la listă", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

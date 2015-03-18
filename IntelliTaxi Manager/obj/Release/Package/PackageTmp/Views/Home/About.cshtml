@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Despre aplicație";
+}
+<h2>@ViewBag.Title</h2>
+@switch ((string)ViewBag.Role)
+{
+    case "Admin":
+        <h3>Documentație <b>IntelliTaxi</b> - administrare</h3>
+        <p>
+            În primul rând, bine ai venit la <b>IntelliTaxi!</b>
+        </p>
+        <p>
+            După cum ai văzut deja, în partea de sus a paginii (în meniu) ai 5 link-uri principale ce îți permit să administrezi aplicația:
+            <ul>
+                <li>@Html.ActionLink("Companii", "Index", "Companies")</li>
+                <li>@Html.ActionLink("Taxiuri", "Index", "Taxies")</li>
+                <li>@Html.ActionLink("Comenzi", "Index", "Orders")</li>
+                <li>@Html.ActionLink("Utilizatori", "Index", "Users")</li>
+                <li>@Html.ActionLink("Statistici", "Stats", "Home")</li>
+            </ul>
+        </p>
+        <p>
+            Să le luăm pe fiecare în parte:
+            <ul>
+                <li>
+                    <b>Companii</b><br />
+                    Aici poți administra companiile ce sunt disponibile în aplicația web și ce pot folosi serviciile oferite de IntelliTaxi. Fiecare companie este adăugată după adăugarea administratorului ca utilizator în aplicație, tocmai pentru că pentru a adăuga o companie, aceasta trebuie să aibă atribuit un administrator.
+                </li>
+                <li>
+                    <b>Taxiuri</b><br />
+                    Aici doar poți vedea taxiurile active și urmări activitatea în timp real a acestora. Le poți modifica sau șterge, însă îți recomandăm să lași administrarea taxiurilor pe seama companiilor, deoarece pot apărea confuzii.
+                </li>
+                <li>
+                    <b>Comenzi</b><br />
+                    Aici doar poți vedea comenzile plasate de utilizatorii site-ului și activitatea companiilor. Pe acestea nu le poți modifica sau șterge, întrucât este responsabilitatea exclusivă a companiilor, respectiv a taximetriștilor.
+                </li>
+                <li>
+                    <b>Utilizatori</b><br />
+                    Aici poți administra toți utilizatorii ce folosesc aplicația web. Poți realiza filtări, poți vedea statisticile sau poți adăuga utilizatori cu roluri superioare (companii, administratori).
+                </li>
+                <li>
+                    <b>Statistici</b><br />
+                    Aici poți vedea o sumedenie de statistici referitoare la comenzi, companii, taxiuri și multe altele.
+                </li>
+            </ul>
+        </p>
+        <p>
+            Acum că ai aflat toate detaliile, te poți întoarce la @Html.ActionLink("pagina principală", "Index", "Home").
+        </p>
+        break;
+    case "Company":
+        <h3><b>IntelliTaxi</b> - cea mai simplă metodă de a-ți administra afacerea</h3>
+        <p>
+            În primul rând, bine ai venit la <b>IntelliTaxi!</b>
+        </p>
+        <p>
+            Această aplicație web îți permite să administrezi în timp real toate comenzile, toate mașinile și să vezi statistici reale ale afacerii tale. Ce îți puteai dori mai mult?
+        </p>
+        <p>
+            Link-uri de administrare:<br />
+            <ul>
+                <li>@Html.ActionLink("Taxiuri", "Index", "Taxies")</li>
+                <li>@Html.ActionLink("Comenzi", "Index", "Orders")</li>
+                <li>@Html.ActionLink("Statistici", "Stats", "Home")</li>
+            </ul>
+        </p>
+        <p>
+            Oricând te poți întoarce la @Html.ActionLink("pagina principală", "Index", "Home").
+        </p>
+        break;
+    case "Taxi":
+        <h3>Documentație <b>IntelliTaxi</b> - client taxi</h3>
+        <p>
+            În primul rând, bine ai venit la <b>IntelliTaxi!</b>
+        </p>
+        <p>
+            După cum ai văzut deja, în partea de sus a paginii (în meniu) ai 1 link principal ce îți permite să administrezi aplicația:
+            <ul>
+                <li>@Html.ActionLink("Comenzi", "Index", "Orders")</li>
+            </ul>
+        </p>
+        <p>
+            Tot ce trebuie să faci este să urmărești constant comenzile ce îți vor apărea pe ecran în ordinea descrescătoare a distanței lor față de tine, iar după care să accepți comenzile la care consideri că poți ajunge în maximum <b>5 minute</b>.
+        </p>
+        <p>
+            Te rugăm totuși să accepți utilizarea locației, întrucât aplicația va trimite constant către server locația ta curentă pentru a putea calcula distanțele față de clienți.
+        </p>
+        <p>
+            Oricând te poți întoarce la @Html.ActionLink("pagina principală", "Index", "Home").
+        </p>
+        break;
+}

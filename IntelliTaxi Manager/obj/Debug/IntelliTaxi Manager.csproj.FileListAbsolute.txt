@@ -1,0 +1,57 @@
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\obj\Debug\IntelliTaxi Manager.csprojResolveAssemblyReference.cache
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\IntelliTaxi Manager.dll.config
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\IntelliTaxi Manager.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\IntelliTaxi Manager.pdb
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Antlr3.Runtime.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\EntityFramework.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\EntityFramework.SqlServer.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\IntelliTaxi Entities.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Newtonsoft.Json.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Owin.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.Helpers.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.Mvc.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.Optimization.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.Razor.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.WebPages.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.WebPages.Razor.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\WebGrease.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\IntelliTaxi Entities.pdb
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Antlr3.Runtime.pdb
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\EntityFramework.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\EntityFramework.SqlServer.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\Newtonsoft.Json.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.Helpers.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.Mvc.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.Razor.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.WebPages.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.WebPages.Razor.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\bin\System.Web.Optimization.xml
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\obj\Debug\IntelliTaxi Manager.dll
+C:\Users\Mihai\Documents\Visual Studio 2013\Projects\IntelliTaxi\IntelliTaxi Manager\obj\Debug\IntelliTaxi Manager.pdb

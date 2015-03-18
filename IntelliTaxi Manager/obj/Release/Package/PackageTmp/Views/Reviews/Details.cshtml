@@ -1,0 +1,58 @@
+﻿@model IntelliTaxi_Entities.Reviews
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reviews</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.From_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.From_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.For_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.For_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SendDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SendDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

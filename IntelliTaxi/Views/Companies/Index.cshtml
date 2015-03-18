@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Companii";
+}
+
+<h2>Companii</h2>
+
+<div class="content">
+    @if (ViewBag.companies != null)
+    {
+        int c = ViewBag.companies.Count();
+        for (int i = 0; i < c; i += 3)
+        {
+            <div class="row">
+                @for (int j = 0; j < 3; j++)
+                {
+                    if (i + j < c)
+                    {
+                        dynamic company = Json.Decode(Json.Encode(ViewBag.companies))[i + j];
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <h1>@company.Name</h1>
+                            Oraș: <b>@company.City</b><br />
+                            Preț: <b>@String.Format("#.##", company.Price) RON</b><br />
+                            <center>@Html.ActionLink("Vezi detalii", "Details", new { id = company.ID }, new { @class = "btn btn-default btn-sm" })</center>
+                        </div>
+                    }
+                }
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row"><center>Nu există înregistrări.</center></div>
+    }
+</div>
